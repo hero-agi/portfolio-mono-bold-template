@@ -20,7 +20,7 @@ export function usePortfolioData() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/portfolio-data/data.json')
+    fetch(`${import.meta.env.BASE_URL}portfolio-data/data.json`)
       .then(r => { if (!r.ok) throw new Error('No data.json'); return r.json(); })
       .then((d: PortfolioData) => setData(d))
       .catch(() => setData(FALLBACK))
